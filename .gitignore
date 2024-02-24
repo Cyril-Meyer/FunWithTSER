@@ -164,3 +164,7 @@ Monash_UEA_UCR_Regression_Archive/
 Monash_UEA_UCR_Regression_Archive.zip
 # Prepared dataset
 dataset/
+
+# Saved models
+model*/
+
