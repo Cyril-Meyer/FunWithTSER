@@ -23,6 +23,6 @@ for data in ['BIDMC32HR', 'BIDMC32RR', 'BIDMC32SpO2']:
     train_x, train_y = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TRAIN.ts"))
     test_x,  test_y  = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TEST.ts"))
     np.save(f'dataset/{data}_train_x',convert_to_npy(train_x))
-    np.save(f'dataset/{data}_train_y',train_y)
+    np.save(f'dataset/{data}_train_y',train_y.astype(np.float64))
     np.save(f'dataset/{data}_test_x', convert_to_npy(test_x))
-    np.save(f'dataset/{data}_test_y', test_y)
+    np.save(f'dataset/{data}_test_y', test_y.astype(np.float64))
