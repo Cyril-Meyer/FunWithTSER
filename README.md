@@ -13,11 +13,11 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset
   * CMV1
   * CMV1-Tank : Same as CMV1 with as much parameters as possible on my setup (RTX 2080 ti)
 
-| **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%** | **SkResNetRegressor** | **CMV1** |
-| ---------------- | --------- | ---------- | ------------- | ------------ | ------ | --------------------- | -------- |
-| BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       |              |        |                       |          |
-| BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |              |        |                       |          |
-| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |              |        |                       |          |
+| **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%**   | **SkResNetRegressor** | **CMV1** |
+| ---------------- | --------- | ---------- | ------------- | ------------ | -------- | --------------------- | -------- |
+| BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       | 14,1101      | *2.5800* |                       |          |
+| BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |  3,4967      | *0.5172* |                       |          |
+| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |  4,8029      | *2.8098* |                       |          |
 
 ### Full benchmark
 * Source : http://tseregression.org/
