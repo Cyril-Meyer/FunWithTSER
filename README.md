@@ -1,7 +1,18 @@
 # FunWithTSER
 Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
 
-⚠️ This is an experimental repository, do not use the code without checking it first. ⚠️
+**⚠️ Warnings ⚠️**
+* This is a weekend research project, not a deep scientific analysis.
+* No search for hyperparameters has been made, the training parameters of the models are chosen empirically.
+* This is an experimental repository, do not use the code without checking it first.
+
+**Quick conclusions**
+* Constant model (mean of training set) baseline is better than anything on one dataset and very close to the SOTA on other dataset.
+  * We are clearly not doing much better than a naive model...
+* The number of filters per layer impact is relatively small (e.g. CMV1-XS versus CMV1-L in [results](#results) section).
+* The results stability is quite bad, most of model have a ±50% potential shift (unmeasured).
+  During my first tests (undocumented and before any commit), I had very very good results, but I haven't reproduced them since,
+  I don't really know what I was doing back then, but CMV0 was very close to Inception.
 
 ### Results
 * Evaluation : 5 run average RMSE score.
@@ -18,22 +29,22 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
     * CMV1-S  : ±12k parameters
     * CMV1    : ±50k parameters
     * CMV1-L  : ±445k parameters, tend to have as much parameters as SkResNet baseline.
-  * CMV2 : Like CMV1 with larger convolution kernel.
-    * CMV2-5 : 
-    * CMV2-7 : 
-    * CMV2-9 : 
+  * CMV2 : Like CMV1 with larger convolution kernels.
+    * CMV2-5 : ±83k parameters
+    * CMV2-7 : ±116k parameters
+    * CMV2-9 : ±150k parameters
 
 | **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%**   | **SkResNet** |
-| ---------------- | --------- | ---------- | ------------- | ------------ | -------- | ------------ |
+| ---------------- | ---------:| ----------:| -------------:| ------------:| --------:| ------------:|
 | BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       | 14,1101      | *2,5800* | 10,2471      |
 | BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |  3,4967      | *0,5172* |  3.9523      |
 | BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |  4,8029      | *2,8098* |  5.5308      |
 
-| **Dataset Name** | **CMV1** | **CMV1-XS** | **CMV1-S** | **CMV1-L** | **CMV2-5** | **CMV2-7** | **CMV2-9** |
-| ---------------- | -------- | ----------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| BIDMC32HR        | **       | *11.2989*   | *14.4698*  | **         |            |            |            |
-| BIDMC32RR        | **       |  *5.5134*   |  *5.1234*  | **         |            |            |            |
-| BIDMC32SpO2      | **       |  *5.7413*   |  *5.0580*  | **         |            |            |            |
+| **Dataset Name** | **CMV1**  | **CMV1-XS** | **CMV1-S** | **CMV1-L** | **CMV2-5** | **CMV2-7** | **CMV2-9** |
+| ---------------- | ---------:| -----------:| ----------:| ----------:| ----------:| ----------:| ----------:|
+| BIDMC32HR        | *12.7861* | *11.2989*   | *14.4698*  | *12.2512*  |            |            |            |
+| BIDMC32RR        |  *5.1015* |  *5.5134*   |  *5.1234*  |  *5.1770*  |            |            |            |
+| BIDMC32SpO2      |  *5.5143* |  *5.7413*   |  *5.0580*  |  *4.6425*  |            |            |            |
 
 ### Full benchmark
 * Source : http://tseregression.org/
