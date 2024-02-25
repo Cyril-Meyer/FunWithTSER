@@ -13,12 +13,12 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
   * SkResNet : [`sktime.regression.deep_learning.resnet.ResNetRegressor`](https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.regression.deep_learning.ResNetRegressor.html) params±500k.
     Even if only 20 epochs are performed, training is very long compared to CMNet models, I don't know why exactly and didn't checked sktime implementation.
 * CMNet : custom model I tryed.
-  * CMV1 : FCN like convolutional neural network architecture with conv block and pooling, see [CMV1.ipynb](CMV1.ipynb).
+  * CMV1 : FCN like convolutional neural network architecture with conv block and pooling, see [CMV1.ipynb](CMV1.ipynb). Score calculated on 3 runs.
     * CMV1-XS : ±3k parameters
     * CMV1-S  : ±12k parameters
     * CMV1    : ±50k parameters
     * CMV1-L  : ±445k parameters, tend to have as much parameters as SkResNet baseline.
-  * CMV2 : Like CMV1 with larger convolution kernel
+  * CMV2 : Like CMV1 with larger convolution kernel.
     * CMV2-5 : 
     * CMV2-7 : 
     * CMV2-9 : 
@@ -31,9 +31,9 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
 
 | **Dataset Name** | **CMV1** | **CMV1-XS** | **CMV1-S** | **CMV1-L** | **CMV2-5** | **CMV2-7** | **CMV2-9** |
 | ---------------- | -------- | ----------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| BIDMC32HR        |          |             |            |            |            |            |            |
-| BIDMC32RR        |          |             |            |            |            |            |            |
-| BIDMC32SpO2      |          |             |            |            |            |            |            |
+| BIDMC32HR        | **       | *11.2989*   | *14.4698*  | **         |            |            |            |
+| BIDMC32RR        | **       |  *5.5134*   |  *5.1234*  | **         |            |            |            |
+| BIDMC32SpO2      | **       |  *5.7413*   |  *5.0580*  | **         |            |            |            |
 
 ### Full benchmark
 * Source : http://tseregression.org/
