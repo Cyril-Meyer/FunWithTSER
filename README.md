@@ -5,12 +5,19 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset
 * Evaluation : 5 run average RMSE score.
   * If score is in *italic*, there is less than 5 runs.
 * FCN, ResNet and Inception results came from the dataset web page, more results in the [full benchmark](#full-benchmark) section.
+* Baselines : as I'm not an expert on the dataset and I may have made errors, I create this baselines scores using my metric implementation.
+  * Constant : a constant model always predicting train set mean value.
+  * 5% : a near perfect model predicting test set values ±5%.
+  * SkResNetRegressor : [`sktime.regression.deep_learning.resnet.ResNetRegressor`](https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.regression.deep_learning.ResNetRegressor.html) params±500k, batch_size=4, n_epochs=20.
+* CMNet : custom model I tryed.
+  * CMV1
+  * CMV1-Tank : Same as CMV1 with as much parameters as possible on my setup (RTX 2080 ti)
 
-| **Dataset Name** | **FCN**   | **ResNet** | **Inception** |
-| ---------------- | --------- | ---------- | ------------- |
-| BIDMC32HR        | 13,130665 | 10,74142   | 9,424679      |
-| BIDMC32RR        | 3,577775  | 3,921214   | 3,018405      |
-| BIDMC32SpO2      | 5,968337  | 5,987832   | 5,57612       |
+| **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%** | **SkResNetRegressor** | **CMV1** |
+| ---------------- | --------- | ---------- | ------------- | ------------ | ------ | --------------------- | -------- |
+| BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       |              |        |                       |          |
+| BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |              |        |                       |          |
+| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |              |        |                       |          |
 
 ### Full benchmark
 * Source : http://tseregression.org/
