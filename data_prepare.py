@@ -20,9 +20,20 @@ for data in ['BIDMC32HR', 'BIDMC32RR', 'BIDMC32SpO2']:
     You can edit load_from_tsfile_to_dataframe function in sktime/datasets/_readers_writers/ts.py 
     Replace with open(full_file_path_and_name, encoding="utf-8") encoding with "cp1252".
     '''
-    train_x, train_y = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TRAIN.ts"))
-    test_x,  test_y  = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TEST.ts"))
+    train_x, train_y = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TRAIN.ts"), encoding="cp1252")
+    test_x,  test_y  = load_from_tsfile(os.path.join(DATA_PATH, f"{data}/{data}_TEST.ts"), encoding="cp1252")
+    
     np.save(f'dataset/{data}_train_x',convert_to_npy(train_x))
     np.save(f'dataset/{data}_train_y',train_y.astype(np.float64))
     np.save(f'dataset/{data}_test_x', convert_to_npy(test_x))
     np.save(f'dataset/{data}_test_y', test_y.astype(np.float64))
+
+for data in ['AustraliaRainfall',
+             'Covid3Month',
+             'FloodModeling1', 'FloodModeling2', 'FloodModeling3',
+             'IEEEPPG',
+             'LiveFuelMoistureContent',
+             'NewsHeadlineSentiment', 'NewsTitleSentiment',
+             'PPGDalia']:
+    # dataset preparation not implemented yet
+    continue
