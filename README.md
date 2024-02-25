@@ -3,12 +3,14 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset
 
 ### Results
 * Evaluation : 5 run average RMSE score.
+  * If score is in *italic*, there is less than 5 runs.
+* FCN, ResNet and Inception results came from the dataset web page, more results in the [full benchmark](#full-benchmark) section.
 
-| **Dataset Name** | **Rocket** | **FCN**   | **ResNet** | **Inception** |
-| ---------------- | ---------- | --------- | ---------- | ------------- |
-| BIDMC32HR        | 13,9443828 | 13,130665 | 10,74142   | 9,424679      |
-| BIDMC32RR        | 4,0929006  | 3,577775  | 3,921214   | 3,018405      |
-| BIDMC32SpO2      | 5,221737   | 5,968337  | 5,987832   | 5,57612       |
+| **Dataset Name** | **FCN**   | **ResNet** | **Inception** |
+| ---------------- | --------- | ---------- | ------------- |
+| BIDMC32HR        | 13,130665 | 10,74142   | 9,424679      |
+| BIDMC32RR        | 3,577775  | 3,921214   | 3,018405      |
+| BIDMC32SpO2      | 5,968337  | 5,987832   | 5,57612       |
 
 ### Full benchmark
 * Source : http://tseregression.org/
