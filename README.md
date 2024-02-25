@@ -6,13 +6,14 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
 * No search for hyperparameters has been made, the training parameters of the models are chosen empirically.
 * This is an experimental repository, do not use the code without checking it first.
 
-**Quick conclusions**
+**Quick conclusions and Remarks**
 * Constant model (mean of training set) baseline is better than anything on one dataset and very close to the SOTA on other dataset.
   * We are clearly not doing much better than a naive model...
 * The number of filters per layer impact is relatively small (e.g. CMV1-XS versus CMV1-L in [results](#results) section).
 * The results stability is quite bad, most of model have a ±50% potential shift (unmeasured).
   During my first tests (undocumented and before any commit), I had very very good results, but I haven't reproduced them since,
   I don't really know what I was doing back then, but CMV0 was very close to Inception.
+* As said in the [dataset](#dataset) section, we only work on a subset of the TSER dataset.
 
 ### Results
 * Evaluation : 5 run average RMSE score.
@@ -29,7 +30,7 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
     * CMV1-S  : ±12k parameters
     * CMV1    : ±50k parameters
     * CMV1-L  : ±445k parameters, tend to have as much parameters as SkResNet baseline.
-  * CMV2 : Like CMV1 with larger convolution kernels.
+  * CMV2 : Like CMV1 with larger convolution kernels, see [CMV2.ipynb](CMV2.ipynb).
     * CMV2-5 : ±83k parameters
     * CMV2-7 : ±116k parameters
     * CMV2-9 : ±150k parameters
