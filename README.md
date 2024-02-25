@@ -1,23 +1,33 @@
 # FunWithTSER
-Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset
+Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
+
+⚠️ This is an experimental repository, do not use the code without checking it first. ⚠️
 
 ### Results
 * Evaluation : 5 run average RMSE score.
   * If score is in *italic*, there is less than 5 runs.
 * FCN, ResNet and Inception results came from the dataset web page, more results in the [full benchmark](#full-benchmark) section.
-* Baselines : as I'm not an expert on the dataset and I may have made errors, I create this baselines scores using my metric implementation.
+* Baselines : as I'm not an expert on the dataset and I may have made errors, I create this baselines scores using my metric implementation to have some ideas of expected values.
   * Constant : a constant model always predicting train set mean value.
   * 5% : a near perfect model predicting test set values ±5%.
-  * SkResNetRegressor : [`sktime.regression.deep_learning.resnet.ResNetRegressor`](https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.regression.deep_learning.ResNetRegressor.html) params±500k, batch_size=4, n_epochs=20.
+  * SkResNet : [`sktime.regression.deep_learning.resnet.ResNetRegressor`](https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.regression.deep_learning.ResNetRegressor.html) params±500k.
+    Even if only 20 epochs are performed, training is very long compared to CMNet models, I don't know why exactly and didn't checked sktime implementation.
 * CMNet : custom model I tryed.
-  * CMV1
-  * CMV1-Tank : Same as CMV1 with as much parameters as possible on my setup (RTX 2080 ti)
+  * CMV1 : FCN like convolutional neural network architecture with conv block and pooling, see [CMV1.ipynb](CMV1.ipynb).
+    * CMV1-XS : ±3k parameters
+    * CMV1-S  : ±12k parameters
+    * CMV1    : ±50k parameters
+    * CMV1-L  : ±445k parameters, tend to have as much parameters as SkResNet baseline.
+  * CMV2 : Like CMV1 with larger convolution kernel
+    * CMV2-5 : 
+    * CMV2-7 : 
+    * CMV2-9 : 
 
-| **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%**   | **SkResNetRegressor** | **CMV1** |
-| ---------------- | --------- | ---------- | ------------- | ------------ | -------- | --------------------- | -------- |
-| BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       | 14,1101      | *2.5800* |                       |          |
-| BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |  3,4967      | *0.5172* |                       |          |
-| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |  4,8029      | *2.8098* |                       |          |
+| **Dataset Name** | **FCN**   | **ResNet** | **Inception** | **Constant** | **5%**   | **SkResNet** | **V1** | **V1 XS** | **V1 S** | **V1 L** | **V2 5** | **V2 7** | **V2 9** |
+| ---------------- | --------- | ---------- | ------------- | ------------ | -------- | ------------ | ------ | --------- | -------- | -------- | -------- | -------- | -------- |
+| BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       | 14,1101      | *2,5800* | 10,2471      |        |           |          |          |          |          |          |
+| BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |  3,4967      | *0,5172* |  3.9523      |        |           |          |          |          |          |          |
+| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |  4,8029      | *2,8098* |  5.5308      |        |           |          |          |          |          |          |
 
 ### Full benchmark
 * Source : http://tseregression.org/
