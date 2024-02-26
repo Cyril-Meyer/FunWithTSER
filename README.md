@@ -17,7 +17,8 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
 
 ### Results
 * Evaluation : 5 run average RMSE score.
-  * If score is in *italic*, there is less than 5 runs.
+  * If score is *italic*, there is less than 5 runs.
+  * If score is **bold**, results are better than state of the art.
 * FCN, ResNet and Inception results came from the dataset web page, more results in the [full benchmark](#full-benchmark) section.
 * Baselines : as I'm not an expert on the dataset and I may have made errors, I create this baselines scores using my metric implementation to have some ideas of expected values.
   * Constant : a constant model always predicting train set mean value.
@@ -39,13 +40,13 @@ Let's have some fun with the Time Series Extrinsic Regression (TSER) Dataset.
 | ---------------- | ---------:| ----------:| -------------:| ------------:| --------:| ------------:|
 | BIDMC32HR        | 13,1306   | 10,7414    |  9,4246       | 14,1101      | *2,5800* | 10,2471      |
 | BIDMC32RR        |  3,5777   |  3,9212    |  3,0184       |  3,4967      | *0,5172* |  3.9523      |
-| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |  4,8029      | *2,8098* |  5.5308      |
+| BIDMC32SpO2      |  5,9683   |  5,9878    |  5,5761       |**4,8029**    | *2,8098* |  5.5308      |
 
 | **Dataset Name** | **CMV1**  | **CMV1-XS** | **CMV1-S** | **CMV1-L** | **CMV2-5** | **CMV2-7** | **CMV2-9** |
 | ---------------- | ---------:| -----------:| ----------:| ----------:| ----------:| ----------:| ----------:|
-| BIDMC32HR        | *12.7861* | *11.2989*   | *14.4698*  | *12.2512*  |            |            |            |
-| BIDMC32RR        |  *5.1015* |  *5.5134*   |  *5.1234*  |  *5.1770*  |            |            |            |
-| BIDMC32SpO2      |  *5.5143* |  *5.7413*   |  *5.0580*  |  *4.6425*  |            |            |            |
+| BIDMC32HR        | *12.7861* | *11.2989*   | *14.4698*  | *12.2512*  | **8.5722** | **8.5640** | **8.8000** |
+| BIDMC32RR        |  *5.1015* |  *5.5134*   |  *5.1234*  |  *5.1770*  |   6.1946   |   5.8331   |   5.2203   |
+| BIDMC32SpO2      |  *5.5143* |  *5.7413*   |  *5.0580*  |***4.6425***| **5.4383** | **5.4139** |   6.1529   |
 
 ### Full benchmark
 * Source : http://tseregression.org/
